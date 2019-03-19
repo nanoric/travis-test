@@ -17,6 +17,7 @@ matrix:
         # C++17
         - sudo apt-get install -qq gcc-8 g++-8 mlocate
         - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90
+        - sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-8 90
         - sudo update-alternatives --install /usr/bin/gcc cc /usr/bin/gcc-8 90
         - sudo updatedb
       script:
@@ -24,3 +25,4 @@ matrix:
         - g++ --version
         - for g in `locate gcc |grep gcc$`; do [ -f $g ] && echo $g && $g --version;  done
         - for g in `locate g++ |grep g++$`; do [ -f $g ] && echo $g && $g --version;  done
+        - for g in `locate g++ |grep c++$`; do [ -f $g ] && echo $g && $g --version;  done
