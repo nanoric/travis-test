@@ -12,12 +12,10 @@ matrix:
       language: "cpp"
       script:
       - set
-
+      
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvarsall.bat" amd64 && cl'
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvarsall.bat" amd64 && msbuild /version'
-
-      - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Auxiliary/Build/vcvarsall.bat" amd64 && cl'
-      - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Auxiliary/Build/vcvarsall.bat" amd64 && msbuild /version'
+      
       - python --version
       - pip --version
 
