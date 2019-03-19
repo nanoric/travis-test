@@ -16,7 +16,8 @@ matrix:
       install:
         # C++17
         - sudo apt-get install -qq gcc-8 g++-8 mlocate
-        - sudo update-alternatives --install /usr/bin/g++ /usr/bin/gcc g++ gcc /usr/bin/g++-8 /usr/bin/gcc-8 90
+        - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90
+        - sudo update-alternatives --install /usr/bin/gcc cc /usr/bin/gcc-8 90
         - sudo updatedb
       script:
         - gcc --version
