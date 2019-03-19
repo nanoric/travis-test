@@ -1,38 +1,19 @@
 language: python
 
-dist: xenial  # required for Python >= 3.7 (travis-ci/travis-ci#9069)
-
-python:
-  - "3.7"
-
 matrix:
   include:
     - name: "try windows"
+      env:
+        - PATH=/c/Python37:/c/Python37/Scripts:$PATH
       os: "windows"
       language: "cpp"
+      before_install:
+        - choco install python3 --version 3.7.2
       script:
       - set
       
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvarsall.bat" amd64 && cl'
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvarsall.bat" amd64 && msbuild /version'
-      
-      - python --version
 
-    - name: "check gcc and g++ version under linux"
-      before_install:
-        # C++17
-        - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-        - sudo apt-get update -qq
-      install:
-        # C++17
-        - sudo apt-get install -qq gcc-8 g++-8 mlocate
-        - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90
-        - sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-8 90
-        - sudo update-alternatives --install /usr/bin/gcc cc /usr/bin/gcc-8 90
-        - sudo updatedb
-      script:
-        - gcc --version
-        - g++ --version
-        - for g in `locate gcc |grep gcc$`; do [ -f $g ] && echo $g && $g --version;  done; exit 0
-        - for g in `locate g++ |grep g++$`; do [ -f $g ] && echo $g && $g --version;  done; exit 0
-        - for g in `locate g++ |grep c++$`; do [ -f $g ] && echo $g && $g --version;  done; exit 0
+      - python --version
+      - pip --version
