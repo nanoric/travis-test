@@ -18,6 +18,8 @@ matrix:
 
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Auxiliary/Build/vcvarsall.bat" amd64 && cl'
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Auxiliary/Build/vcvarsall.bat" amd64 && msbuild /version'
+      - python --version
+      - pip --version
 
     - name: "check gcc and g++ version under linux"
       before_install:
