@@ -9,10 +9,11 @@ matrix:
   include:
     - name: "try windows"
       os: "windows"
+      language: "cpp"
       script:
+      - set
       - msbuild /version
       - cl --version
-      language: "cpp"
 
     - name: "check gcc and g++ version under linux"
       before_install:
