@@ -12,6 +12,7 @@ matrix:
       script:
       - msbuild /version
       - cl --version
+      language: "cpp"
 
     - name: "check gcc and g++ version under linux"
       before_install:
