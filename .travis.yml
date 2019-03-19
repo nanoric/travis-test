@@ -23,6 +23,6 @@ matrix:
       script:
         - gcc --version
         - g++ --version
-        - for g in `locate gcc |grep gcc$`; do [ -f $g ] && echo $g && $g --version;  done
-        - for g in `locate g++ |grep g++$`; do [ -f $g ] && echo $g && $g --version;  done
-        - for g in `locate g++ |grep c++$`; do [ -f $g ] && echo $g && $g --version;  done
+        - for g in `locate gcc |grep gcc$`; do [ -f $g ] && echo $g && $g --version;  done; exit 0
+        - for g in `locate g++ |grep g++$`; do [ -f $g ] && echo $g && $g --version;  done; exit 0
+        - for g in `locate g++ |grep c++$`; do [ -f $g ] && echo $g && $g --version;  done; exit 0
