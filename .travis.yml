@@ -7,9 +7,14 @@ python:
 
 matrix:
   include:
-  
-    # check gcc and g++ version
-    - before_install:
+    - name: "try windows"
+      os: "windows"
+      script:
+      - msbuild /version
+      - cl --version
+
+    - name: "check gcc and g++ version under linux"
+      before_install:
         # C++17
         - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
         - sudo apt-get update -qq
