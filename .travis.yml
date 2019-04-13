@@ -1,4 +1,8 @@
 language: python
+services:
+  - mysql
+  - postgresql
+  - mongodb
 
 matrix:
   include:
@@ -7,3 +11,4 @@ matrix:
         - python -c "import platform; print(platform.uname())"
         - python --version
         - pip --version
+        - netstat -anpt
