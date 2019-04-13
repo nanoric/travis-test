@@ -1,5 +1,3 @@
-language: python
-
 services:
   - postgresql
   - mysql
@@ -9,7 +7,6 @@ matrix:
   include:
     - name: "try services under windows"
       os: "windows"
-      language: "cpp"
       script:
       - set
       
