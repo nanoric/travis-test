@@ -1,19 +1,19 @@
 language: python
 
+services:
+  - postgresql
+  - mysql
+  - mongodb
+
 matrix:
   include:
-    - name: "try windows"
-      env:
-        - PATH=/c/Python37:/c/Python37/Scripts:$PATH
+    - name: "try services under windows"
       os: "windows"
       language: "cpp"
-      before_install:
-        - choco install python3 --version 3.7.2
       script:
       - set
       
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvarsall.bat" amd64 && cl'
       - cmd.exe /C '"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build/vcvarsall.bat" amd64 && msbuild /version'
 
-      - python --version
-      - pip --version
+      - netstat -ant
