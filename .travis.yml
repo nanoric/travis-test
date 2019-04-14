@@ -12,7 +12,9 @@ matrix:
         - python --version
         - pip --version
         - pip list
+        - python -m pip list
         - python3 --version
         - pip3 --version
         - pip3 list
-        - netstat -anp
+        - python3 -m pip list
+        - netstat -an
