@@ -25,3 +25,6 @@ matrix:
         - gcc --version
         - g++ --version
         - g++-8 --version
+        - gcc-8 --version
+        - whereis g++-8
+        - whereis gcc-8
