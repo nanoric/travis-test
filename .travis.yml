@@ -1,4 +1,6 @@
 language: python
+dist: xenial
+python: 3.7
 services:
   - mysql
   - postgresql
@@ -7,8 +9,19 @@ services:
 matrix:
   include:
     - name: "linux"
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-8
+        env:
+          - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
       script:
         - python -c "import platform; print(platform.uname())"
         - python --version
         - pip --version
         - netstat -anpt
+        - gcc --version
+        - g++ --version
+        - g++-8 --version
