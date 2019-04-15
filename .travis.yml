@@ -13,9 +13,11 @@ matrix:
         - python --version
         - pip --version
         - pip list
+        - python -m pip install --upgrade pip setuptools --user python
         - python -m pip list
         - python3 --version
         - pip3 --version
         - pip3 list
         - python3 -m pip list
+        - python3 -m pip install --upgrade pip setuptools --user python
         - netstat -an
