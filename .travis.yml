@@ -2,6 +2,7 @@ services:
   - mysql
   - postgresql
   - mongodb
+dist: xenial  # required for Python >= 3.7 (travis-ci/travis-ci#9069)
 
 matrix:
   include:
